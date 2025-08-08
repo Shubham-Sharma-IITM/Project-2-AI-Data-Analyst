@@ -2,15 +2,14 @@ fastapi
 uvicorn
 numpy
 pandas
-pillow
 matplotlib
 seaborn
 scikit-learn
 httpx
-sentence-transformers
 duckdb
 requests
 beautifulsoup4
 lxml
 tabula-py
 networkx
+python-multipart
