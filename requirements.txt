@@ -13,3 +13,5 @@ lxml
 tabula-py
 networkx
 python-multipart
+json
+pillow
