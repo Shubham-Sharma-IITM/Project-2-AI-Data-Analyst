@@ -47,27 +47,27 @@ import sys
 import re
 import subprocess
 
-def install_dependencies_from_code(code: str):
-    """
-    Scan the code for imports and install all listed packages.
-    If a dependency is already installed, pip will skip it.
-    """
-    imports = set()
+# def install_dependencies_from_code(code: str):
+#     """
+#     Scan the code for imports and install all listed packages.
+#     If a dependency is already installed, pip will skip it.
+#     """
+#     imports = set()
 
-    for line in code.splitlines():
-        line = line.strip()
-        if line.startswith("import "):
-            modules = [m.strip().split(".")[0] for m in line.replace(",", " ").split()[1:]]
-            imports.update(modules)
-        elif line.startswith("from "):
-            module = line.split(" ")[1].split(".")[0]
-            imports.add(module)
+#     for line in code.splitlines():
+#         line = line.strip()
+#         if line.startswith("import "):
+#             modules = [m.strip().split(".")[0] for m in line.replace(",", " ").split()[1:]]
+#             imports.update(modules)
+#         elif line.startswith("from "):
+#             module = line.split(" ")[1].split(".")[0]
+#             imports.add(module)
 
-    if imports:
-        print(f"Installing dependencies: {imports}")
-        subprocess.run([sys.executable, "-m", "pip", "install", *imports], check=False)
-    else:
-        print("No imports found in code.")
+#     if imports:
+#         print(f"Installing dependencies: {imports}")
+#         subprocess.run([sys.executable, "-m", "pip", "install", *imports], check=False)
+#     else:
+#         print("No imports found in code.")
 
 
 
@@ -104,8 +104,8 @@ def run_code_with_llm(messages):
 
         print("\n--- Generated Code ---\n", code)
 
-        if iteration == 2:  # First loop after LLM output
-            install_dependencies_from_code(code)
+        # if iteration == 2:  # First loop after LLM output
+        #     install_dependencies_from_code(code)
 
         # Step 2: Save to a temp file
         with tempfile.NamedTemporaryFile(delete=False, suffix=".py", mode="w", encoding="utf-8") as temp_file:
