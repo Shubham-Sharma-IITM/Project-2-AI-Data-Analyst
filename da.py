@@ -151,7 +151,7 @@ async def upload_files(request: Request):
                 with open(save_path, "wb") as f:
                     f.write(content_bytes)
 
-                if field_value.filename == "questions.txt":
+                if field_value.filename == "question.txt":
                     questions_content = content_text
 
                 files_received.append({
