@@ -14,3 +14,16 @@ tabula-py
 networkx
 python-multipart
 pillow
+chardet
+authlib
+sentence-transformers
+duckdb
+tabula-py
+wget
+crawl4ai
+playwright
+jmespath
+ijson
+openpyxl
+geopy
+geopandas
