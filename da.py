@@ -48,7 +48,7 @@ HEADERS = {
 
 async def ask_qwen_async(messages):
     """Send messages to Qwen3 Coder and return code output asynchronously."""
-    async with httpx.AsyncClient(timeout=120) as client:
+    async with httpx.AsyncClient(timeout=300) as client:
         response = await client.post(OPENROUTER_URL, headers=HEADERS, json={
             "model": MODEL_CODE,
             "messages": messages,
@@ -182,6 +182,6 @@ async def upload_files(request: Request):
         return Response(content=result, media_type="application/json")
 
     try:
-        return await asyncio.wait_for(process_request(), timeout=180)
+        return await asyncio.wait_for(process_request(), timeout=300)
     except asyncio.TimeoutError:
         return JSONResponse(content={"message": "Response from LLMs timed Out, please try again"}, status_code=504)
