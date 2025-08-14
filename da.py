@@ -179,6 +179,8 @@ async def upload_files(request: Request):
         # Step 2: Generate and run code
         result = await run_code_with_llm(messages)
 
+        logger.info(result)
+
         return Response(content=result, media_type="application/json")
 
     try:
